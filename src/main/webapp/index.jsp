@@ -6,11 +6,11 @@
     <title>NexusShop — Modern E‑Commerce</title>
 
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 
     <style>
-        /* ========== REDESIGNED ROOT VARIABLES ========== */
+        /* ========== ROOT VARIABLES ========== */
         :root {
             --bg-body: #f7f5f2;
             --bg-card: #ffffff;
@@ -91,6 +91,131 @@
             overflow: hidden;
             clip: rect(0, 0, 0, 0);
             border: 0;
+        }
+
+        /* ========== FLY HIGH BANNER ========== */
+        .fly-high-banner {
+            background: linear-gradient(90deg, #1e1e2f 0%, #2d2d44 40%, #d96c4a 100%);
+            color: #fff;
+            padding: 22px 0;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+        .fly-high-banner::before {
+            content: '✦';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 120px;
+            opacity: 0.04;
+            color: #fff;
+            pointer-events: none;
+        }
+        .fly-high-banner::after {
+            content: '✦';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 120px;
+            opacity: 0.04;
+            color: #fff;
+            pointer-events: none;
+        }
+        .fly-high-banner .banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        .fly-high-banner .banner-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 68px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            line-height: 1;
+            background: linear-gradient(180deg, #ffffff 0%, #f2d6cb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+            animation: flyPulse 3s ease-in-out infinite;
+            white-space: nowrap;
+        }
+        .fly-high-banner .banner-icon {
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.18);
+            animation: flyFloat 4s ease-in-out infinite;
+        }
+        .fly-high-banner .banner-icon:last-child {
+            animation-delay: 2s;
+        }
+        .fly-high-banner .banner-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: 999px;
+            padding: 6px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-top: 4px;
+        }
+
+        @keyframes flyPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.92; }
+        }
+        @keyframes flyFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @media (max-width: 992px) {
+            .fly-high-banner .banner-text {
+                font-size: 48px;
+                letter-spacing: 5px;
+            }
+            .fly-high-banner .banner-icon {
+                font-size: 34px;
+            }
+        }
+        @media (max-width: 768px) {
+            .fly-high-banner {
+                padding: 16px 0;
+            }
+            .fly-high-banner .banner-text {
+                font-size: 34px;
+                letter-spacing: 3px;
+            }
+            .fly-high-banner .banner-icon {
+                display: none;
+            }
+            .fly-high-banner .banner-badge {
+                font-size: 11px;
+                padding: 4px 16px;
+                letter-spacing: 1.5px;
+            }
+        }
+        @media (max-width: 480px) {
+            .fly-high-banner .banner-text {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+            .fly-high-banner .banner-badge {
+                font-size: 10px;
+                padding: 3px 12px;
+            }
         }
 
         /* ========== BUTTONS ========== */
@@ -343,7 +468,7 @@
             font-size: 16px;
         }
 
-        /* ========== HERO — cleaner, more breathing room ========== */
+        /* ========== HERO ========== */
         .hero {
             position: relative;
             display: flex;
@@ -444,7 +569,7 @@
             color: var(--accent-dark);
         }
 
-        /* ========== CATEGORIES — softer, rounder ========== */
+        /* ========== CATEGORIES ========== */
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -492,7 +617,7 @@
             color: var(--muted);
         }
 
-        /* ========== PRODUCTS — more modern card ========== */
+        /* ========== PRODUCTS ========== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -644,7 +769,7 @@
             background: var(--success);
         }
 
-        /* ========== DEAL — cleaner, more focused ========== */
+        /* ========== DEAL ========== */
         .deal-wrap {
             display: flex;
             gap: 0;
@@ -745,7 +870,7 @@
             margin-top: 2px;
         }
 
-        /* ========== TESTIMONIALS — softer cards ========== */
+        /* ========== TESTIMONIALS ========== */
         .testimonials-scroll {
             display: flex;
             gap: 22px;
@@ -809,7 +934,7 @@
             color: var(--muted);
         }
 
-        /* ========== NEWSLETTER — wider, centered ========== */
+        /* ========== NEWSLETTER ========== */
         .newsletter-wrap {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             border-radius: var(--radius-lg);
@@ -986,168 +1111,4 @@
             .newsletter-wrap {
                 padding: 40px 32px;
                 flex-direction: column;
-                text-align: center;
-            }
-            .newsletter-wrap .text p {
-                max-width: 100%;
-            }
-            .newsletter-wrap form {
-                max-width: 100%;
-                width: 100%;
-            }
-            .search-wrap {
-                min-width: 170px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav.main-nav {
-                display: none;
-            }
-            .mobile-toggle {
-                display: grid;
-                place-items: center;
-            }
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            .categories-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
-            .hero p {
-                font-size: 16px;
-            }
-            .hero {
-                min-height: 360px;
-                padding: 36px 0;
-                margin: 14px 14px 0;
-            }
-            .section-header h2 {
-                font-size: 24px;
-            }
-            .deal-wrap .deal-content h3 {
-                font-size: 24px;
-            }
-            .deal-wrap .deal-content .price-big {
-                font-size: 28px;
-            }
-            .timer-box {
-                min-width: 60px;
-                padding: 10px 14px;
-            }
-            .timer-box .num {
-                font-size: 22px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            .header-inner {
-                flex-wrap: nowrap;
-            }
-            .brand {
-                font-size: 19px;
-            }
-            .brand i {
-                font-size: 22px;
-            }
-            .search-wrap {
-                min-width: 130px;
-                padding: 0 12px 0 16px;
-            }
-            .search-wrap input {
-                font-size: 13px;
-                padding: 9px 0;
-            }
-            .header-actions .icon-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
-            }
-            .cart-count {
-                width: 18px;
-                height: 18px;
-                font-size: 10px;
-            }
-            .testimonial-card {
-                flex: 0 0 300px;
-                padding: 22px 24px;
-            }
-            .section {
-                padding: 44px 0;
-            }
-            .newsletter-wrap {
-                padding: 32px 24px;
-            }
-            .newsletter-wrap .text h3 {
-                font-size: 22px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .categories-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .hero {
-                margin: 10px 10px 0;
-                min-height: 300px;
-                padding: 28px 0;
-                border-radius: var(--radius-md);
-            }
-            .hero h1 {
-                font-size: 26px;
-            }
-            .hero .badge {
-                font-size: 11px;
-                padding: 4px 14px;
-            }
-            .container {
-                padding: 0 16px;
-            }
-            .deal-wrap .deal-content {
-                padding: 24px 20px;
-            }
-            .deal-wrap .deal-img {
-                flex: 0 0 200px;
-            }
-            .newsletter-wrap {
-                padding: 26px 18px;
-                border-radius: var(--radius-md);
-            }
-            .newsletter-wrap .text h3 {
-                font-size: 20px;
-            }
-            .product-card .body {
-                padding: 14px 14px 10px;
-            }
-            .product-card .body h5 {
-                font-size: 13px;
-            }
-            .product-card .body .price {
-                font-size: 16px;
-            }
-            .product-card .footer {
-                padding: 0 14px 14px;
-            }
-            .product-card .footer .add-btn {
-                font-size: 12px;
-                padding: 9px;
-            }
-            .timer-box {
-                min-width: 50px;
-                padding: 8px 10px;
-            }
-            .timer-box .num {
-                font-size: 18px;
-            }
-           
+                text-align
